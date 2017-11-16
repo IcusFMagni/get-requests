@@ -24,6 +24,7 @@ module.exports = router;
 router.post('/new', function (req,res) {
     console.log('something else');
     console.log('req.body in new quote post', req.body);
-    quotes_data.push({quoteText: req.body.quote_to_add})
+    quotes_data.push({quoteText: req.body.quote_to_add, 
+    author: req.body.author_to_add})
     res.sendStatus(200)
 }) 

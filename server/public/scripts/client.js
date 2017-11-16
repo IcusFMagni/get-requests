@@ -9,7 +9,8 @@ function readyNow() {
         $.ajax({
             method: 'POST',
             url: '/quotes/new',
-            data: { quote_to_add: $('input').val() },
+            data: { quote_to_add: $('#quote').val(),
+                    author_to_add:$('#author').val() },
             success: function (response) {
                 console.log('new quote post response:', response);
 
@@ -32,7 +33,7 @@ function readyNow() {
             success: function (response) {
                 $('ul').html('')
                 for (let index = 0; index < response.length; index++) {
-                    $('ul').append ('<li>'+response[index].quoteText+'</li>');
+                    $('ul').append ('<li>'+response[index].quoteText+', '+response[index].author+'</li>');
                     
                 }
 
